@@ -1,6 +1,6 @@
-aa1821d7fa3161742b1aec8fa024dcd3 *DESCRIPTION
+1ee3fea8d5ab5b51cfe2e1ce590293be *DESCRIPTION
 55056976f8f100ea226be163847302c3 *NAMESPACE
-d1538bdd88f87bf20e6786b758a12a9f *NEWS.md
+4ef56cc4b5c9e111e31de517c444bf73 *NEWS.md
 48d0e5c0b8ea6fcfa25a6d01378e3f31 *R/bar_chart_counts.R
 0f59f05b8eb701e8429564d94a7a6580 *R/data.R
 da9f3138375e7834128e51f133bf55cd *R/date_to_sy.R
@@ -15,7 +15,7 @@ eba2178c8d967996cfdf2dbf3c9a686c *R/survey_utils.R
 43d9dc621da18dd35f816979362917df *R/theme_tntp.R
 9553cc121a033dd2d27d659373896e6f *R/theme_tntp_2018.R
 4ea712abbcf7863b0cb5d6cba6dcb18f *R/tntp_colors.R
-de38ff6bbb02e27143dd427bfcc02a1a *R/tntp_cred.R
+bda8fdbced258d1de7ff7a1af86279ec *R/tntp_cred.R
 7f95269cc0b398a07c7116abd6efe004 *R/tntp_style.R
 292a610ad3db398719d9ae6a00b396f0 *R/tntpr.R
 f094e9926c517eeee9ca8fe05b8e0800 *R/update_tntpr.R
@@ -27,7 +27,7 @@ b63b13707446b3aaff245867d544c701 *data/teacher_survey.rda
 0f069314394abdbd739ff06f68986bce *data/wisc.rda
 27c6d4cedd366d84498ef338f0d0c0dc *inst/doc/visualization-cookbook.R
 5c158ceefcd74d5bf93fce2ca1f469b7 *inst/doc/visualization-cookbook.Rmd
-be34024af84145110419c2eea658c197 *inst/doc/visualization-cookbook.html
+989472afedaa5e5e0533d4fb94ba1989 *inst/doc/visualization-cookbook.html
 acaa65b46d8c6799b6918d5c1cb7ba55 *inst/rmarkdown/templates/data_memo/skeleton/skeleton.Rmd
 8cbd9dbe2b85087bd1afc76629403172 *inst/rmarkdown/templates/data_memo/skeleton/tntp-style-file.docx
 460d51990e278236b4a0d15466ec82b1 *inst/rmarkdown/templates/data_memo/template.yaml
