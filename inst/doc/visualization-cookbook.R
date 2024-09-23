@@ -327,17 +327,12 @@ ggplot(teacher_survey_he_perc, aes(percent, question, fill = response)) +
   labs(title = "High Expectations Survey Responses") +
   tntp_style(base_size = base_font_size)
 
+## ----eval=FALSE---------------------------------------------------------------
+#  geom_col(position = "diverge")
+
 ## -----------------------------------------------------------------------------
-legend_order <- c(agree_disagree_scale[c(1,2,3)], agree_disagree_scale[c(6,5,4)])
-
-teacher_survey_div <- teacher_survey_he_perc |> 
-  mutate(
-    perc_diverge = ifelse(str_detect(response, '[D|d]isagree'), percent * -1, percent),
-    response = factor(response, levels = legend_order)
-  )
-
-ggplot(teacher_survey_div, aes(x = perc_diverge, y = question, fill = response)) +
-  geom_col() +
+ggplot(teacher_survey_he_perc, aes(x = percent, y = question, fill = fct_rev(response))) +
+  geom_col(position = position_diverge()) +
   scale_fill_manual(
     values = tntp_palette("likert_6"), 
     drop = FALSE,
@@ -345,7 +340,25 @@ ggplot(teacher_survey_div, aes(x = perc_diverge, y = question, fill = response))
     labels = agree_disagree_scale
   ) +
   geom_vline(aes(xintercept = 0), linetype = 1, linewidth = 1.2, alpha = .7) +
-  scale_x_continuous(limits = c(-1, 1), breaks = seq(-1, 1, .25), labels = function(x) scales::percent(abs(x))) +
+  scale_x_continuous(limits = c(-1, 1), breaks = seq(-1, 1, .25), labels = \(x) scales::percent(abs(x))) +
+  labs(title = "High Expectations Survey Responses") +
+  tntp_style(base_size = base_font_size)
+
+
+## -----------------------------------------------------------------------------
+ggplot(teacher_survey_he_perc, aes(x = percent, y = question, fill = fct_rev(response))) +
+  geom_col(position = position_diverge(break_after = "Agree")) +
+  geom_text(aes(label = ifelse(percent > 0.1, percent_pretty, "")), 
+            position = position_diverge(break_after = "Agree", vjust = 0.5),
+            family = "Halyard Display", size = 3) + 
+  scale_fill_manual(
+    values = tntp_palette("likert_6"), 
+    drop = FALSE,
+    breaks = agree_disagree_scale,
+    labels = agree_disagree_scale
+  ) +
+  geom_vline(aes(xintercept = 0), linetype = 1, linewidth = 1.2, alpha = .7) +
+  scale_x_continuous(limits = c(-1, 1), breaks = seq(-1, 1, .25), labels = \(x) scales::percent(abs(x))) +
   labs(title = "High Expectations Survey Responses") +
   tntp_style(base_size = base_font_size)
 
