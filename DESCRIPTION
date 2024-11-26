@@ -1,7 +1,7 @@
 Type: Package
 Package: tntpr
 Title: Data Analysis Tools Customized for TNTP
-Version: 1.2.0
+Version: 1.2.1
 Authors@R: c(
       person("Dustin", "Pashouwer", role = c("aut", "cre"), 
              email = "dustin.pashouwer@tntp.org"),
@@ -31,11 +31,11 @@ LazyData: true
 RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2024-11-26 14:15:53 UTC; SamTalcott
+Packaged: 2024-11-26 21:03:16 UTC; SamTalcott
 Author: Dustin Pashouwer [aut, cre],
   Sam Firke [aut],
   Shane Orr [aut],
   Sam Talcott [aut]
 Maintainer: Dustin Pashouwer <dustin.pashouwer@tntp.org>
 Repository: CRAN
-Date/Publication: 2024-11-26 15:10:02 UTC
+Date/Publication: 2024-11-26 23:00:02 UTC

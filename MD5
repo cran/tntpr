@@ -1,6 +1,6 @@
-579a290d90754c3c554039f73eecfd17 *DESCRIPTION
+5df2881f60e6601f513b0aad6629f422 *DESCRIPTION
 1f063bc09cf4b5dbb1fb66315273d744 *NAMESPACE
-ea5b8c70663bb06a076261220c105649 *NEWS.md
+dc7fdc8bec0bf1e93b10c00789497471 *NEWS.md
 48d0e5c0b8ea6fcfa25a6d01378e3f31 *R/bar_chart_counts.R
 0f59f05b8eb701e8429564d94a7a6580 *R/data.R
 da9f3138375e7834128e51f133bf55cd *R/date_to_sy.R
@@ -12,7 +12,7 @@ dad010cdaf07e6caa48a15be47a8b2dc *R/palette_tntp.R
 3b21e820e1c26b95047b4ee315d84327 *R/position_diverge.R
 48787aba34b5308e3d7d4b74028d46d0 *R/setup_repo.R
 21ae882c15bf881f490fa8db25e738d3 *R/show_in_excel.R
-f9f3135c0a01dd4e67c8283f138aa3ce *R/sp_.R
+767e0b42a08da65ddc7deb1fef5d112c *R/sp_.R
 96a8c030ef32e68d516c1050f3b9da6d *R/survey_utils.R
 43d9dc621da18dd35f816979362917df *R/theme_tntp.R
 ca1f0349f5bd586fd324a575673706ed *R/theme_tntp_2018.R
