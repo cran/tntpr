@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  install.packages('tntpr')
+#  install.packages("tntpr")
 
 ## ----load_packages------------------------------------------------------------
 # NOTE: We are not simply loading `tidyverse` in this vignette due to how vignettes
@@ -28,11 +28,11 @@ library(ggridges)
 plt <- ggplot(ggplot2::mpg, aes(displ, hwy)) +
   geom_point() +
   labs(
-    title = 'Cars with higher displacement\nhave a lower MPG',
-    subtitle = 'Displacement vs. MPG',
+    title = "Cars with higher displacement\nhave a lower MPG",
+    subtitle = "Displacement vs. MPG",
     caption = "Data from ggplot's mpg dataset",
-    x = 'Engine Displ.',
-    y = 'MPG'
+    x = "Engine Displ.",
+    y = "MPG"
   )
 
 plt +
@@ -40,8 +40,8 @@ plt +
 
 ## -----------------------------------------------------------------------------
 plt +
-  tntp_style(show_axis_titles = TRUE, family = 'sans', base_size = 20) +
-  theme(plot.subtitle = ggplot2::element_text(family = 'serif', size = 25))
+  tntp_style(show_axis_titles = TRUE, family = "sans", base_size = 20) +
+  theme(plot.subtitle = ggplot2::element_text(family = "serif", size = 25))
 
 ## -----------------------------------------------------------------------------
 plt +
@@ -52,7 +52,7 @@ plt +
 tntp_colors("green", "mint")
 
 ## -----------------------------------------------------------------------------
-show_tntp_colors('green', 'moss', 'mint')
+show_tntp_colors("green", "moss", "mint")
 
 ## -----------------------------------------------------------------------------
 # Note: the cex_label parameter is used to adjust the relative font size
@@ -131,7 +131,7 @@ bar_df <- school_salary |>
 ggplot(bar_df, aes(x = school_name, y = avg_salary)) +
   geom_bar(stat="identity", 
            position="identity", 
-           fill= tntp_colors('gold')) +
+           fill= tntp_colors("gold")) +
   scale_y_continuous(labels = scales::dollar, limits = c(0, 5000)) +
   labs(
     title="Acacia had higher average salaries in 2015",
@@ -182,7 +182,7 @@ ggplot(
 earnings_to_keep <- levels(stacked_df$t_salary_cut)[c(4,1)]
 
 # map bar colors to values
-colors_to_use <- tntp_colors('yellow', 'green') |> 
+colors_to_use <- tntp_colors("yellow", "green") |> 
   set_names(earnings_to_keep)
 
 dodged_df <- stacked_df |> 
@@ -207,19 +207,19 @@ scores_salary <- county_data |>
     avg_test_score = mean(sch_ela_avg + sch_math_avg, na.rm=FALSE),
     avg_salary = mean(t_salary, na.rm = FALSE),
     enrollment = mean(sch_enroll_2015, na.rm = TRUE),
-    .groups = 'drop'
+    .groups = "drop"
   ) |> 
   mutate(perc_rank_test_score = percent_rank(avg_test_score)) |> 
   drop_na()
 
 ## -----------------------------------------------------------------------------
 ggplot(scores_salary, aes(avg_salary, perc_rank_test_score)) +
-  geom_point(color = tntp_colors('tangerine'), alpha = 0.9, size = 3) +
+  geom_point(color = tntp_colors("tangerine"), alpha = 0.9, size = 3) +
   labs(
-    title = 'Schools with higher salaries do not have higher test scores',
-    subtitle = 'Relationship between school test scores and salaries',
-    x = 'Average school salary',
-    y = 'Percentile rank test score'
+    title = "Schools with higher salaries do not have higher test scores",
+    subtitle = "Relationship between school test scores and salaries",
+    x = "Average school salary",
+    y = "Percentile rank test score"
   ) +
   scale_x_continuous(labels = scales::dollar) +
   scale_y_continuous(labels = scales::percent) +
@@ -228,15 +228,15 @@ ggplot(scores_salary, aes(avg_salary, perc_rank_test_score)) +
 
 ## -----------------------------------------------------------------------------
 dumbbell_df <- dodged_df |> 
-  pivot_wider(id_cols = 'school_name', names_from = 't_salary_cut', values_from = 'n_cut_school') |> 
+  pivot_wider(id_cols = "school_name", names_from = "t_salary_cut", values_from = "n_cut_school") |> 
   mutate(across(where(is.numeric), ~replace_na(.x, 0)))
 
 ggplot(dumbbell_df, aes(x = `under $2.5k`, xend = `$4.5k+`, y = fct_reorder(school_name, `under $2.5k`)), group = school_names) + 
   geom_dumbbell(
     color = tntp_colors("light_grey"),
     size = 3,
-    colour_x = tntp_colors('gold'),
-    colour_xend = tntp_colors('green'),
+    colour_x = tntp_colors("gold"),
+    colour_xend = tntp_colors("green"),
     show.legend = TRUE
   ) +
   labs(title = "More teachers earn over $4.5k than under $2.5k",
@@ -254,8 +254,8 @@ ggplot(number_teachers_school, aes(n)) +
   labs(
     title = "Schools have a wide distribution in the number of teachers",
     subtitle = "Total number of teachers per school",
-    x = 'Number of teacher in school',
-    y = 'Count'
+    x = "Number of teacher in school",
+    y = "Count"
   ) +
   tntp_style(base_size = base_font_size)
 
@@ -267,7 +267,7 @@ ggplot(county_data, aes(x = t_salary, y = school_year, group = school_year, fill
        subtitle = "Income distrubution and quantiles for teachers") +
   tntp_style(base_size = base_font_size) + 
   theme(legend.position = "none") + 
-  scale_fill_manual(values = tntp_palette('colorful'))
+  scale_fill_manual(values = tntp_palette("colorful"))
 
 ## -----------------------------------------------------------------------------
 teacher_survey <- tntpr::teacher_survey
@@ -282,13 +282,13 @@ agree_disagree_scale <- rev(c("Strongly Agree", "Agree", "Somewhat Agree", "Some
 # put survey into long form and clean up question names
 teacher_survey_he <- teacher_survey |> 
   select(-timing) |> 
-  pivot_longer(cols = everything(), names_to = 'question', values_to = 'response')
+  pivot_longer(cols = everything(), names_to = "question", values_to = "response")
 
 # calculate percentage of responses to each high expectations question
 teacher_survey_he_perc <- teacher_survey_he |> 
   drop_na("response") |>
   # calculate the number of responses for each response option
-  count(question, response, name = 'n_response') |>
+  count(question, response, name = "n_response") |>
   # calculate the number of responses for each question
   group_by(question) |>
   mutate(n_question = sum(n_response)) |>
@@ -303,12 +303,12 @@ teacher_survey_he_perc <- teacher_survey_he |>
 
 # calculate percentage of strongly agree and agree
 teacher_survey_he_perc <- teacher_survey_he_perc |> 
-  mutate(scale_strength = ifelse(response %in% !!agree_disagree_scale[c(5,6)], 'Strong response', 'Weak response')) |>
+  mutate(scale_strength = ifelse(response %in% !!agree_disagree_scale[c(5,6)], "Strong response", "Weak response")) |>
   group_by(question, scale_strength) |>
   mutate(strong_response_percent = sum(percent)) |>
   ungroup() |> 
   mutate(
-    strong_response_percent = ifelse(response == 'Agree', strong_response_percent, NA),
+    strong_response_percent = ifelse(response == "Agree", strong_response_percent, NA),
     # create line breaks for questions ,which will make plots look better
     question = str_wrap(question, axis_line_breaks),
     response = factor(response, levels = agree_disagree_scale)
@@ -319,7 +319,7 @@ ggplot(teacher_survey_he_perc, aes(percent, question, fill = response)) +
   geom_col() +
   geom_text(
     aes(label = scales::percent(strong_response_percent, accuracy = 1), x = strong_response_percent),
-    color = 'white', fontface='bold', family = "Halyard Display", size = 5, hjust = 1.05
+    color = "white", fontface = "bold", family = "Halyard Display", size = 5, hjust = 1.05
   ) +
   scale_x_continuous(labels = scales::percent, limits = c(0,1)) +
   scale_fill_manual(values = tntp_palette("top2_6"), drop = FALSE) +
